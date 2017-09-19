@@ -1,7 +1,6 @@
 import json
 import pprint
 import itertools
-import stable_matching_helpers as helpers
 
 
 def to_pretty_json(obj):
