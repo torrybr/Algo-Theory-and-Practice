@@ -1,6 +1,7 @@
 import itertools
 import random
 
+
 # In this file, a matching looks like {'a': 'c', 'b': 'd', 'c': 'a', 'd': 'b'} for example.
 # And a stable matching problem looks like:
 # ({'a': {'c': 0, 'd': 1}, 'b': {'c': 0, 'd': 1}},
