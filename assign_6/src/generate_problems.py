@@ -1,7 +1,7 @@
 import json
 import pprint
 import itertools
-
+from src import stable_matching_helpers as helpers
 
 def to_pretty_json(obj):
     ret = pprint.pformat(obj, indent=1, width=100, compact=True).replace('(', '[').replace(')', ']').replace('\'', '"')
@@ -84,7 +84,7 @@ def create_random_problems_json_file(filename, number_of_problems,
 
 
 def create_small_problems():
-    create_random_problems_json_file('resources/small-problems.json', 5,
+    create_random_problems_json_file('small-problems.json', 5,
                                      sizes=[2, 2, 3, 3, 3],
                                      specs=[{'group1': 'a', 'group2': 'b'},
                                             {'group1': 'j', 'group2': 'k'},
