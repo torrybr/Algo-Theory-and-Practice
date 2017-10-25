@@ -80,11 +80,11 @@ def create_random_problems_json_file(filename, number_of_problems,
                                      sizes=(2, 3), specs=(None,), pretty_print=False):
     written_filename = write_obj_to_json_file(filename, random_problems(number_of_problems, sizes, specs),
                                               pretty_print=pretty_print)
-    print('Wrote file: ' + written_filename)
+    #print('Wrote file: ' + written_filename)
 
 
 def create_small_problems():
-    create_random_problems_json_file('small-problems.json', 5,
+    create_random_problems_json_file("/Users/torrybrelsford/Documents/cs320/git/torrybr/assign_6/input/big_problem_input.json", 5,
                                      sizes=[2, 2, 3, 3, 3],
                                      specs=[{'group1': 'a', 'group2': 'b'},
                                             {'group1': 'j', 'group2': 'k'},
@@ -102,7 +102,7 @@ def create_medium_problems():
 
 
 def create_big_problems():
-    create_random_problems_json_file('resources/big-problems.json', 50,
+    create_random_problems_json_file("/Users/torrybrelsford/Documents/cs320/git/torrybr/assign_6/input/big_problem_input.json", 50,
                                      sizes=list(range(10, 1000, 20)),
                                      specs=[{'group1': 'a', 'group2': 'b', 'verbose': True},
                                             {'group1': 'j', 'group2': 'k', 'verbose': True},
@@ -112,6 +112,12 @@ def create_big_problems():
 def create_huge_problems():
     create_random_problems_json_file('resources/huge-problems.json', 5,
                                      sizes=[2500],
+                                     specs=[{'group1': 'a', 'group2': 'b', 'verbose': True},
+                                            {'group1': 'j', 'group2': 'k', 'verbose': True},
+                                            {'group1': 'x', 'group2': 'y', 'verbose': True}])
+def create_my_problems(size):
+    create_random_problems_json_file("/Users/torrybrelsford/Documents/cs320/git/torrybr/assign_6/input/3500.json", 10,
+                                     sizes=[size],
                                      specs=[{'group1': 'a', 'group2': 'b', 'verbose': True},
                                             {'group1': 'j', 'group2': 'k', 'verbose': True},
                                             {'group1': 'x', 'group2': 'y', 'verbose': True}])
