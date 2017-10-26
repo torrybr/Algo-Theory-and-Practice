@@ -1,4 +1,5 @@
 from random import randint, shuffle, sample
+import copy
 
 
 ############### COULDNT GET THE IMPORT TO WORK ############################
@@ -162,13 +163,22 @@ def compute_tps(filename):
 
     graph = read_graph(filename)
     incoming_edges = compute_in_degrees(graph)
+    incoming_edges_iter = copy.deepcopy(incoming_edges)
     for k, v in graph.items():
         print(k, v)
+
+    print("############################")
+
+    for k, v in incoming_edges.items():
+        print(k, v)
+
     while len(graph) > 0:
         incoming_edges = compute_in_degrees(graph)
         for k, v in incoming_edges.items():
+            print("Incoming Edge for", k, v)
             if v == 0:
-                print("key",k, " has no indegrees, deleting")
+                print("key", k, " has no indegrees, deleting")
+
                 del graph[k]
                 # tps = []
                 # write_tps_to_file(tps, filename)
@@ -177,5 +187,6 @@ def compute_tps(filename):
 if __name__ == '__main__':
     """ Write code here to run compute_tps for your testing purposes"""
     import sys
+
     filename = sys.argv[1]
     compute_tps(filename)

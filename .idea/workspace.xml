@@ -2,13 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2d5558bb-b219-4adf-9958-5f52234b8bf0" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/torrybr.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assign_6/src/gs.py" afterPath="$PROJECT_DIR$/assign_6/src/gs.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assign_7/src/graph.py" afterPath="$PROJECT_DIR$/assign_7/src/graph.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assign_7/src/src.py" afterPath="$PROJECT_DIR$/assign_7/src/src.py" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -20,7 +13,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/torrybr$src.coverage" NAME="src Coverage Results" MODIFIED="1508992702391" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/assign_7/src" />
+    <SUITE FILE_PATH="coverage/torrybr$src.coverage" NAME="src Coverage Results" MODIFIED="1508994585995" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/assign_7/src" />
   </component>
   <component name="FileEditorManager">
     <splitter split-orientation="horizontal" split-proportion="0.5107143">
@@ -29,9 +22,11 @@
           <file leaf-file-name="src.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/assign_7/src/src.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="425">
-                  <caret line="170" column="61" lean-forward="true" selection-start-line="170" selection-start-column="61" selection-end-line="170" selection-end-column="61" />
-                  <folding />
+                <state relative-caret-position="440">
+                  <caret line="169" column="39" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="192" selection-end-column="0" />
+                  <folding>
+                    <element signature="e#0#43#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -83,8 +78,8 @@
           <file leaf-file-name="small_test.txt" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/assign_7/src/small_test.txt">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="110">
-                  <caret line="5" column="3" lean-forward="true" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
+                <state relative-caret-position="44">
+                  <caret line="2" column="3" lean-forward="true" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
                   <folding />
                 </state>
               </provider>
@@ -103,8 +98,8 @@
           <file leaf-file-name="graph.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/assign_7/src/graph.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-888">
-                  <caret line="35" column="66" lean-forward="false" selection-start-line="35" selection-start-column="66" selection-end-line="35" selection-end-column="66" />
+                <state relative-caret-position="300">
+                  <caret line="47" column="57" lean-forward="true" selection-start-line="47" selection-start-column="57" selection-end-line="47" selection-end-column="57" />
                   <folding />
                 </state>
               </provider>
@@ -134,8 +129,8 @@
         <option value="$PROJECT_DIR$/assign_7/src/graph.py" />
         <option value="$PROJECT_DIR$/assign_7/src/graph.txt" />
         <option value="$PROJECT_DIR$/assign_7/src/DAG_5_test_smaller.txt.txt" />
-        <option value="$PROJECT_DIR$/assign_7/src/src.py" />
         <option value="$PROJECT_DIR$/assign_7/src/small_test.txt" />
+        <option value="$PROJECT_DIR$/assign_7/src/src.py" />
       </list>
     </option>
   </component>
@@ -338,12 +333,12 @@
       <updated>1507760389749</updated>
       <workItem from="1507760393036" duration="43000" />
       <workItem from="1508980673297" duration="54000" />
-      <workItem from="1508980757381" duration="9033000" />
+      <workItem from="1508980757381" duration="10732000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9130000" />
+    <option name="totallyTimeSpent" value="10829000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="71" y="0" width="2322" height="1447" extended-state="0" />
@@ -413,14 +408,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assign_7/src/graph.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-888">
-          <caret line="35" column="66" lean-forward="false" selection-start-line="35" selection-start-column="66" selection-end-line="35" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assign_7/src/graph.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
@@ -433,14 +420,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="110">
           <caret line="5" column="3" lean-forward="true" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assign_7/src/DAG_10_test.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="3" />
           <folding />
         </state>
       </provider>
@@ -461,19 +440,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assign_7/src/src.py">
+    <entry file="file://$PROJECT_DIR$/assign_7/src/DAG_10_test.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="170" column="61" lean-forward="true" selection-start-line="170" selection-start-column="61" selection-end-line="170" selection-end-column="61" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assign_7/src/graph.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="47" column="57" lean-forward="true" selection-start-line="47" selection-start-column="57" selection-end-line="47" selection-end-column="57" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assign_7/src/small_test.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="5" column="3" lean-forward="true" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
+        <state relative-caret-position="44">
+          <caret line="2" column="3" lean-forward="true" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assign_7/src/src.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="169" column="39" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="192" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
