@@ -162,26 +162,21 @@ def compute_tps(filename):
     in tps, then use write_tps_to_file() to output it to a file called output_<filename>"""
 
     graph = read_graph(filename)
+    # t, t1 = read_double_graph(filename)
     incoming_edges = compute_in_degrees(graph)
-    incoming_edges_iter = copy.deepcopy(incoming_edges)
-    for k, v in graph.items():
-        print(k, v)
-
-    print("############################")
-
-    for k, v in incoming_edges.items():
-        print(k, v)
+    tps = []
+    # tps_ints = []
 
     while len(graph) > 0:
-        incoming_edges = compute_in_degrees(graph)
         for k, v in incoming_edges.items():
-            print("Incoming Edge for", k, v)
+            # print("Incoming Edge for", k, v)
             if v == 0:
-                print("key", k, " has no indegrees, deleting")
-
+                tps.append(str(k))
+                # tps_ints.append(k)
                 del graph[k]
-                # tps = []
-                # write_tps_to_file(tps, filename)
+                incoming_edges = compute_in_degrees(graph)
+    write_tps_to_file(tps, "outs")
+    # print(check_TPS(t,tps_ints))
 
 
 if __name__ == '__main__':
