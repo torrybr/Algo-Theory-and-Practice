@@ -105,7 +105,3 @@ def gen_and_write_DAG(num_nodes, filename):
         edges = generate_random_DAG(num_nodes)
         for edge in edges:
             file.write(str(edge[0]) + ' ' + str(edge[1]) + '\n')
-
-
-if __name__ == '__main__':
-    gen_and_write_DAG(15, "test")

@@ -1,12 +1,10 @@
 import sys
 import time
 from src import generate_problems
-<<<<<<< Updated upstream
 from src import stable_matching_helpers
 
 
 def run_gale_shapley(preferences):
-=======
 import json
 from src import stable_matching_helpers
 
@@ -18,12 +16,10 @@ def write_json(obj, filename):
 
 def run_gale_shapley(preferences, output_file_name):
     final_to_file = []
->>>>>>> Stashed changes
     for i in range(len(preferences)):
         free_men = sorted(preferences[i][0].keys()) # Turns into a list of free men by sorting
         engagements = {}
         while free_men:
-<<<<<<< Updated upstream
             print("Testing Free Man "+ free_men[0])
             current_prefs = preferences[i][0].get(free_men[0])
             free_men.pop(0)
@@ -32,7 +28,6 @@ def run_gale_shapley(preferences, output_file_name):
 if __name__ == "__main__":
     preferences = generate_problems.parse_json_file(sys.argv[1])
     run_gale_shapley(preferences)
-=======
             current_man = free_men.pop(0)
             # print("Testing Free Man " + "'" + current_man + "'")
             current_man_prefs = preferences[i][0].get(current_man)
@@ -73,4 +68,3 @@ if __name__ == "__main__":
         print(generate_problems.json_files_equal(my_file,
                                                  out))
     print("Ran in: {:.5f} secs".format(end_time - start_time))
->>>>>>> Stashed changes
