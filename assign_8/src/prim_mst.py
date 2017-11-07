@@ -3,7 +3,6 @@ import random
 import sys
 import copy
 from collections import defaultdict
-from . import kruskal_mst_reference_implementation as impl
 
 
 ################################### undirected_graph.py #############################################################
@@ -108,6 +107,18 @@ def read_by_row(filename):
     return [parse_line(line) for line in lines]
 
 
+def read_weighted_undirected_graph(filename):
+    input_graph = Graph()
+    with open(filename) as f:
+        for line in f:
+            try:
+                v1, v2, w = line.split()
+                input_graph.add_edge(v1, v2, {'weight': int(w)})
+            except:
+                pass
+    return input_graph
+
+
 def name(i):
     return 'v' + hex(i)[2:]
 
@@ -174,33 +185,57 @@ def write_tree_edges_to_file(edges, filename):
 def compute_mst(filename):
     '''Use Prim's algorithm to compute the minimum spanning tree of the weighted undirected graph
     described by the contents of the file named filename.'''
-    # tree_edges = []
 
-    # Need to keep track of two graphs
-    input_graph = Graph()
+    # MST graph object
     mst_graph = Graph()
 
-    # Read in the file
-    data = read_by_row(filename)
+    # List of edges in the spanning tree
+    tree_edges = []
 
-    # Add data to graph object
-    for x in data:
-        attribute = {'Weight': int(x[2])}
-        input_graph.add_node(x[0])
-        input_graph.add_edge(x[0], x[1], attribute)
+    # Read the file into a graph object
+    input_graph = read_weighted_undirected_graph(filename)
 
-    input_graph_edges = list(input_graph.get_edges())
-    for edge in input_graph_edges:
-        print(edge[0], edge[1], input_graph.attributes_of(edge[0], edge[1]))
+    # Size of Vertices in the input graph
+    nodes_left = len(input_graph.get_nodes())
+    print("Number of nodes to add to spanning tree", nodes_left)
+
+    # Choose a starting node Randomly from the nodes, set the current node to the random node chosen
+    # current_node = random.choice(list(input_graph.get_nodes()))
+    current_node = "v0"
+    print("Beginning @ node .. ", current_node)
+    c  = 0
+    
+    # While there are nodes that are not in the MST keeping looping
+    while (c < 5):
+        # Set the minimum weight to max infinity
+        min_weight = sys.maxsize
+
+        # Best edge to add to MST
+        best_edge = {}
+
+        # Look at all edges connecting to the vertex and choose the one with the lowest weight and add this to the new graph
+        print("Neighbors of.. ", current_node, "are", input_graph.neighbors(current_node))
+
+        for node in input_graph.neighbors(current_node):
+            print("The weights of the edges connected to", current_node,
+                input_graph.attributes_of(current_node, node))
+
+            if input_graph.attributes_of(current_node, node)['weight'] < min_weight:
+                print("The edge between", current_node, "and", node, "is smaller")
+                min_weight = input_graph.attributes_of(current_node, node)['weight']
+                best_edge = {current_node, node}
+                best_node = node
+        print("Adding Edge", best_edge, "to the spanning tree")
+        mst_graph.add_edge(current_node, node)
+        tree_edges.append(best_edge)
+        print(len(mst_graph.get_nodes()))
+        c += 1
 
 
 
 
-
-
-
-        # TODO compute the edges of a minimum spanning tree
-        # write_tree_edges_to_file(tree_edges, filename + '.mst')
+    # TODO compute the edges of a minimum spanning tree
+    # write_tree_edges_to_file(tree_edges, filename + '.mst')
 
 
 if __name__ == '__main__':
