@@ -205,7 +205,6 @@ def compute_mst(filename):
 
     # Choose a starting node Randomly from the nodes, set the current node to the random node chosen
     current_node = random.choice(list(input_graph.get_nodes()))
-    print("Beginning @ node .. ", current_node)
 
     for v in input_graph.get_nodes():
         if v != current_node:
@@ -217,33 +216,38 @@ def compute_mst(filename):
         print(x)
 
     # The parent of s is NULL (none is pythons equivalent to NULL)
-    heapq.heappush(connected, (None, current_node))
+    # heapq.heappush(connected, (None, current_node))
+    connected.append(current_node)
+    best_neighbor = heapq.heappop(priorityq)[1]
+    while (len(connected) < 5):
+        # print("The Minimum of the Q is.. ", best_neighbor)
+        # print("u = ", best_neighbor)
+        for v in input_graph.neighbors(best_neighbor):
+            #print("Adjacent Vertex", v, "to", best_neighbor)
+            if v not in connected:
+                # print(v, "is not in the connected graph")
+                pir = [item for item in priorityq if item[1] == v][0][0]
+                if input_graph.attributes_of(v, best_neighbor)['weight'] < pir:
+                    # print(input_graph.attributes_of(v, min_value[1])['weight'], pir)
+                    heapq.heappush(priorityq, (input_graph.attributes_of(v, best_neighbor)['weight'], v))
 
-    min_value = heapq.heappop(priorityq)
-
-    print("The Minimum of the Q is.. ", min_value)
-    print("u = ", min_value[1])
-
-    for v in input_graph.neighbors(min_value[1]):
-        print("Adjacent Vertex", v, "to", min_value[1])
-        if v not in connected:
-            print(v, "is not in the connected graph")
-            pir = [item for item in priorityq if item[1] == v][0][0]
-            if input_graph.attributes_of(v, min_value[1])['weight'] < pir:
-                print(input_graph.attributes_of(v, min_value[1])['weight'], pir)
-                heapq.heapreplace(priorityq,(input_graph.attributes_of(v, min_value[1])['weight'], v))
-                print(priorityq)
-                print("there is an edge in the MST from",min_value[1],v)
+        # print(priorityq)
+        best_neighbor = heapq.heappop(priorityq)[1]
+        # print(priorityq)
+        # print("Choosing", best_neighbor, "for the next node")
+        current_node = best_neighbor
+        connected.append(best_neighbor)
     for x in priorityq:
         print(x)
 
+    print("This is the tree -- > ", connected)
 
 
 
 
 
-                # TODO compute the edges of a minimum spanning tree
-                # write_tree_edges_to_file(tree_edges, filename + '.mst')
+    # TODO compute the edges of a minimum spanning tree
+    # write_tree_edges_to_file(tree_edges, filename + '.mst')
 
 
 if __name__ == '__main__':
