@@ -3,6 +3,7 @@ import random
 import sys
 import copy
 from collections import defaultdict
+import time
 
 
 ################################### undirected_graph.py #############################################################
@@ -232,7 +233,10 @@ def compute_mst(filename):
 
 
 if __name__ == '__main__':
-    # generate graph
-    #write_graph_edges_to_file("tester.txt", generate_weighted_undirected_graph_edges(1000, 0))
+    #write_graph_edges_to_file("50000.txt", generate_weighted_undirected_graph_edges(50000, 0))
     filename = sys.argv[1]
+    start_time = time.process_time()
     compute_mst(filename)
+    end_time = time.process_time()
+    print("Ran in: {:.5f} secs".format(end_time - start_time))
+
