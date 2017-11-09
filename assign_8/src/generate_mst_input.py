@@ -48,3 +48,9 @@ def write_graph_edges_to_file(filename, edges):
     with open(filename, mode='w') as f:
         for v1, v2, w in edges:
             f.write("{} {} {}\n".format(v1, v2, w))
+
+
+if __name__ == '__main__':
+    # generate graph
+    write_graph_edges_to_file("tester.txt", generate_weighted_undirected_graph_edges(9, 0))
+
