@@ -170,9 +170,12 @@ def write_graph_edges_to_file(filename, edges):
 
 #################################### I can never get the files to import ###############################################
 
-def write_tree_edges_to_file(edges, filename):
-    # TODO write out the edges, one per line. The same format as produced by generate_mst_input
-    pass
+
+def write_tree_edges_to_file(filename, edges):
+    with open(filename, mode='w') as f:
+        for v1, v2, w in edges:
+            # print(v1,v2,w)
+            f.write("{} {} {}\n".format(v1, v2, w))
 
 
 # Do not change this function's name or the arguments it takes. Also, do not change
@@ -189,7 +192,7 @@ def compute_mst(filename):
     # Create a Priority Q
     priorityq = []
 
-    connected = []
+    connected = set()
 
     # Define INFINTIY
     infinity = sys.maxsize
@@ -200,58 +203,56 @@ def compute_mst(filename):
     # List of edges in the spanning tree
     tree_edges = []
 
+    in_connect = set()
     # Read the file into a graph object
     input_graph = read_weighted_undirected_graph(filename)
 
     # Choose a starting node Randomly from the nodes, set the current node to the random node chosen
     current_node = random.choice(list(input_graph.get_nodes()))
 
-    for v in input_graph.get_nodes():
-        if v != current_node:
-            heapq.heappush(priorityq, (infinity, v))
-        else:
-            heapq.heappush(priorityq, (0, v))
+    # testme = list(input_graph.get_edges())
+    # print(testme)
 
-    for x in priorityq:
-        print(x)
+    # for v in input_graph.get_nodes():
+    #   if v != current_node:
+    #        heapq.heappush(priorityq, (infinity, v))
+    #    else:
+    #        heapq.heappush(priorityq, (0, v))
 
+    # for x in priorityq:
+    #   print(x)
+    tree=set()
     # The parent of s is NULL (none is pythons equivalent to NULL)
     # heapq.heappush(connected, (None, current_node))
-    connected.append(current_node)
-    best_neighbor = heapq.heappop(priorityq)[1]
-    while (len(connected) < 5):
+    tree.add("v1")
+    # best_neighbor = heapq.heappop(priorityq)[1]
+    best_neighbor = "v1"
+    # print("Starting node", current_node)
+    while len(connected) < len(input_graph.get_nodes()) - 1:
         # print("The Minimum of the Q is.. ", best_neighbor)
         # print("u = ", best_neighbor)
         for v in input_graph.neighbors(best_neighbor):
-            #print("Adjacent Vertex", v, "to", best_neighbor)
-            if v not in connected:
-                # print(v, "is not in the connected graph")
-                pir = [item for item in priorityq if item[1] == v][0][0]
-                if input_graph.attributes_of(v, best_neighbor)['weight'] < pir:
-                    # print(input_graph.attributes_of(v, min_value[1])['weight'], pir)
-                    heapq.heappush(priorityq, (input_graph.attributes_of(v, best_neighbor)['weight'], v))
-
-        # print(priorityq)
-        best_neighbor = heapq.heappop(priorityq)[1]
-        # print(priorityq)
+            prev_edge = (v, best_neighbor, input_graph.attributes_of(v, best_neighbor)['weight'])
+            prev_edge2 = (best_neighbor, v, input_graph.attributes_of(v, best_neighbor)['weight'])
+            if prev_edge not in connected and prev_edge2 not in connected:
+                if v not in tree:
+                    heapq.heappush(priorityq, (input_graph.attributes_of(v, best_neighbor)['weight'], best_neighbor, v))
+        min_weight = heapq.heappop(priorityq)
+        best_neighbor = min_weight[2]
         # print("Choosing", best_neighbor, "for the next node")
         current_node = best_neighbor
-        connected.append(best_neighbor)
-    for x in priorityq:
-        print(x)
+        best_edge = (min_weight[1], min_weight[2], min_weight[0])
+        tree.add(min_weight[2])
+        connected.add(best_edge)
 
-    print("This is the tree -- > ", connected)
+    # print("This is the tree -- > ", connected)
+    # print(list(connected))
 
-
-
-
-
-    # TODO compute the edges of a minimum spanning tree
-    # write_tree_edges_to_file(tree_edges, filename + '.mst')
+    write_tree_edges_to_file(filename + '.mst', list(connected))
 
 
 if __name__ == '__main__':
     # generate graph
-    # write_graph_edges_to_file("small_input.txt", generate_weighted_undirected_graph_edges(5, 0))
+    #write_graph_edges_to_file("tester.txt", generate_weighted_undirected_graph_edges(10, 0))
     filename = sys.argv[1]
     compute_mst(filename)
