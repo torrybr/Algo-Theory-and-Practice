@@ -189,42 +189,50 @@ def compute_mst(filename):
     '''Use Prim's algorithm to compute the minimum spanning tree of the weighted undirected graph
     described by the contents of the file named filename.'''
 
-    # Create a Priority Q
+    # The Priority Queue
     priorityq = []
 
+    # The set of tuples that represent connected edges in the MST.
     connected = set()
 
+    # Read the undirected weighted graph into a Graph() object.
     input_graph = read_weighted_undirected_graph(filename)
 
-    # Choose a starting node Randomly from the nodes, set the current node to the random node chosen
+    # Choose a starting node Randomly from the "input_graph" nodes, set the current node to the random node chosen.
     current_node = random.choice(list(input_graph.get_nodes()))
+
+    # The set of nodes that have been connected.
     tree = set()
+
+    # Add the starting node to to the "tree" set so I know it is already in the Tree.
     tree.add(current_node)
-    best_neighbor = current_node
 
-    for v in input_graph.neighbors(best_neighbor):
-        heapq.heappush(priorityq, (input_graph.attributes_of(v, best_neighbor)['weight'], best_neighbor, v))
+    # For every neighbor of the "current_node" add that edge to the "priorityq"
+    for v in input_graph.neighbors(current_node):
+        heapq.heappush(priorityq, (input_graph.attributes_of(v, current_node)['weight'], current_node, v))
 
-    # print("Starting node", current_node)
+    '''The algorithm to traverse through tree using prims to find a Minimum Spanning Tree.
+    This Runs until the (size of the connected set) is less than (the size of the total nodes in the input graph) - 1'''
     while len(connected) < len(input_graph.get_nodes()) - 1:
 
+        # Pop the lowest weight of the "current_nodes" edges
         min_weight = heapq.heappop(priorityq)
 
         if min_weight[2] not in tree:
             tree.add(min_weight[2])
             best_edge = (min_weight[1], min_weight[2], min_weight[0])
             connected.add(best_edge)
-            best_neighbor = min_weight[2]
-            for v in input_graph.neighbors(best_neighbor):
-                prev_edge = (v, best_neighbor, input_graph.attributes_of(v, best_neighbor)['weight'])
-                prev_edge2 = (best_neighbor, v, input_graph.attributes_of(v, best_neighbor)['weight'])
+            current_node = min_weight[2]
+            for v in input_graph.neighbors(current_node):
+                prev_edge = (v, current_node, input_graph.attributes_of(v, current_node)['weight'])
+                prev_edge2 = (current_node, v, input_graph.attributes_of(v, current_node)['weight'])
                 if prev_edge not in connected and prev_edge2 not in connected:
-                    heapq.heappush(priorityq, (input_graph.attributes_of(v, best_neighbor)['weight'], best_neighbor, v))
+                    heapq.heappush(priorityq, (input_graph.attributes_of(v, current_node)['weight'], current_node, v))
     write_tree_edges_to_file(filename + '.mst', list(connected))
 
 
 if __name__ == '__main__':
     # generate graph
-    write_graph_edges_to_file("tester.txt", generate_weighted_undirected_graph_edges(20, 0))
+    #write_graph_edges_to_file("tester.txt", generate_weighted_undirected_graph_edges(1000, 0))
     filename = sys.argv[1]
     compute_mst(filename)
