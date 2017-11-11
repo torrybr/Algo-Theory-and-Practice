@@ -235,8 +235,8 @@ def compute_mst(filename):
 if __name__ == '__main__':
     #write_graph_edges_to_file("50000.txt", generate_weighted_undirected_graph_edges(50000, 0))
     filename = sys.argv[1]
-    start_time = time.process_time()
+    #start_time = time.process_time()
     compute_mst(filename)
-    end_time = time.process_time()
-    print("Ran in: {:.5f} secs".format(end_time - start_time))
+    #end_time = time.process_time()
+    #print("Ran in: {:.5f} secs".format(end_time - start_time))
 
